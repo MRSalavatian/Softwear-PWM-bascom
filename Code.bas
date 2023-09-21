@@ -4,7 +4,7 @@ $crystal = 8000000
 $baud = 9600
 Enable Interrupts
 '************************
-Config Timer0 = Timer , Prescale = 1
+Config Timer0 = Timer , Prescale = 1024
 On Timer0 Tick
 Enable Timer0
 Stop Timer0
@@ -34,12 +34,67 @@ Dim Ii As Word
 
 Dim Pwm(32) As Byte
 Dim Outt(4) As Byte
+Dim Pwm_counter As Byte
 
-const max_pwm=10
+Const Max_pwm_count = 10
 '************************
 Stop Timer0
+
+I = 1
+
+Pwm(1) = 1
+Pwm(2) = 2
+Pwm(3) = 3
+Pwm(4) = 4
+Pwm(5) = 5
+Pwm(6) = 6
+Pwm(7) = 7
+Pwm(8) = 8
+Pwm(9) = 9
+Pwm(10) = 10
+Pwm(11) = 1
+Pwm(12) = 2
+Pwm(13) = 3
+Pwm(14) = 4
+Pwm(15) = 5
+Pwm(16) = 6
+Pwm(17) = 7
+Pwm(18) = 8
+
 Do
+
+
+   Incr Pwm_counter
+   If Pwm_counter > Max_pwm_count Then Pwm_counter = 0
+
+   Ii = 1
+   For I = 0 To 7
+      If Pwm(ii) <= Pwm_counter Then Outt(1).i = 1 Else Outt(1).i = 0
+      Incr Ii
+   Next I
+
+   For I = 0 To 7
+      If Pwm(ii) <= Pwm_counter Then Outt(2).i = 1 Else Outt(2).i = 0
+      Incr Ii
+   Next I
+
+   For I = 0 To 7
+      If Pwm(ii) <= Pwm_counter Then Outt(3).i = 1 Else Outt(3).i = 0
+      Incr Ii
+   Next I
+
+   For I = 0 To 7
+      If Pwm(ii) <= Pwm_counter Then Outt(4).i = 1 Else Outt(4).i = 0
+      Incr Ii
+   Next I
+
    Gosub Shift_out
+
+
+   Waitms 10
+
+
+
 Loop
 
 Do
@@ -72,7 +127,6 @@ Tick:
    Else
       Outt(1).0 = 0
    End If
-
 
 
 

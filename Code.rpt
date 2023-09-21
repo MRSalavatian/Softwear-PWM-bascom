@@ -1,6 +1,6 @@
 Report       : Code
-Date         : 09-20-2023
-Time         : 20:13:27
+Date         : 09-21-2023
+Time         : 20:20:44
 
 Compiler     : BASCOM-AVR LIBRARY V 1.11.9.8
 Processor    : M8
@@ -8,9 +8,9 @@ SRAM         : 400 hex
 EEPROM       : 200 hex
 ROMSIZE      : 2000 hex
 
-ROMIMAGE     : 32C hex  -> Will fit into ROM
-ROMIMAGE     :  812 dec
-FLASH USED   :  9  %
+ROMIMAGE     : 622 hex  -> Will fit into ROM
+ROMIMAGE     :  1570 dec
+FLASH USED   :  19  %
 BAUD         : 9600 Baud
 XTAL         : 8000000 Hz
 BAUD error   : 0.16%
@@ -21,7 +21,7 @@ S-Stacksize  : 8 hex
 S-Stackstart : 440 hex
 Framesize    : 18 hex
 Framestart   : 427 hex
-Space left   :  919  dec
+Space left   :  918  dec
 
 LCD DB7      : PORTB.7
 LCD DB6      : PORTB.6
@@ -67,6 +67,7 @@ I                                Word              0060          96
 II                               Word              0062          98 
 PWM                              Byte (32)         0064          100 
 OUTT                             Byte (4)          0084          132 
+PWM_COUNTER                      Byte              0088          136 
 
 --------------------------------------------------------------------------------
 Constant                         Value
@@ -416,7 +417,7 @@ _HWSTACK_LOW                      1087
 _SWSTACK_LOW                      1080                                                                                                                                                                                                                                                           
 _FRAME_HIGH                       1080                                                                                                                                                                                                                                                           
 _XMEGA                           0                                                                                                                                                                                                                                                               
-MAX_PWM                          10                                                                                                                                                                                                                                                              
+MAX_PWM_COUNT                    10                                                                                                                                                                                                                                                              
 
 
 --------------------------------------------------------------------------------
@@ -433,6 +434,4 @@ COUNTER2                         not used
 COMPARE2                         not used
 ADCD                             not used
 COMPARE1                         not used
-I                                not used
-II                               not used
 
